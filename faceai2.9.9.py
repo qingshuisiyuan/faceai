@@ -162,7 +162,5 @@ while (True):
     time.sleep(0.05)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-# 释放摄像头
-# cap.release()
 # 释放窗口资源
 cv2.destroyAllWindows()
