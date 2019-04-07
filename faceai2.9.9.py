@@ -6,7 +6,7 @@
 #程序3.0版本后会进行树莓派硬件，显示屏效果测试阶段
 
 """
-程序版本：2.9.8
+程序版本：2.9.9
 可实现功能：识别人脸，识别人脸性别,识别人脸表情，给人脸添加头像挂件
 本项目使用Python开发，兼容2.7及3.0以上版本
 但在测试和实际使用中，python2.7对中文支持不好，会有中文乱码问题
@@ -64,7 +64,7 @@ emotion_classifier = load_model('classifier/emotion_models/simple_CNN.530-0.65.h
 
 cap = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
-imgCompose = cv2.imread("img/compose/maozi-1.png") 
+imgCompose = cv2.imread("img/maozi-1.png") 
 
 def discern(img):
 
@@ -131,7 +131,7 @@ def discern(img):
         #头像挂件代码
         try:
             for faceRect in faceRects:
-                # imgCompose = cv2.imread("img/compose/maozi-1.png") 
+                # imgCompose = cv2.imread("img/maozi-1.png") 
                 x, y, w, h = faceRect
                 sp = imgCompose.shape
                 imgComposeSizeH = int(sp[0]/sp[1]*w)
