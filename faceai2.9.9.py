@@ -47,23 +47,15 @@ color = (163, 214, 255)
 num = 0
 
 #定义人脸表情中文代码
-emotion_labels = {
-    0: '生气',
-    1: '厌恶',
-    2: '恐惧',
-    3: '开心',
-    4: '难过',
-    5: '惊喜',
-    6: '平静'
-}
+emotion_labels = {0: '生气',1: '厌恶',2: '恐惧',3: '开心',4: '难过',5: '惊喜',6: '平静'}
+
+#定义人脸性别中文代码
+gender_labels = {0: '女', 1: '男'}
 
 #将所需文件加载解析到全局内存中
 gender_classifier = load_model("classifier/gender_models/simple_CNN.81-0.96.hdf5")
-gender_labels = {0: '女', 1: '男'}
 emotion_classifier = load_model('classifier/emotion_models/simple_CNN.530-0.65.hdf5')
-
 cap = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-
 imgCompose = cv2.imread("img/maozi-1.png") 
 
 def discern(img):
