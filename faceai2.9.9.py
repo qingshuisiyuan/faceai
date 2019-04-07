@@ -108,17 +108,17 @@ def discern(img):
                     img = chineseText.cv2ImgAddText(img, gender, x + h, y, (224, 54, 54))
             except:
                 print("错误代码：Oxf-001 已知错误！未检测到图像中的人脸或无法识别人脸性别")
-
-        #表情识别代码
-        for (x, y, w, h) in faceRects:
-            gray_face = gray[(y):(y + h), (x):(x + w)]
-            gray_face = cv2.resize(gray_face, (48, 48))
-            gray_face = gray_face / 255.0
-            gray_face = np.expand_dims(gray_face, 0)
-            gray_face = np.expand_dims(gray_face, -1)
-            emotion_label_arg = np.argmax(emotion_classifier.predict(gray_face))
-            emotion = emotion_labels[emotion_label_arg]
-            img = chineseText.cv2ImgAddText(img, emotion, x + h * 0.3, y, (0, 0, 255))
+        if (num % 3 == 0):
+            #表情识别代码
+            for (x, y, w, h) in faceRects:
+                gray_face = gray[(y):(y + h), (x):(x + w)]
+                gray_face = cv2.resize(gray_face, (48, 48))
+                gray_face = gray_face / 255.0
+                gray_face = np.expand_dims(gray_face, 0)
+                gray_face = np.expand_dims(gray_face, -1)
+                emotion_label_arg = np.argmax(emotion_classifier.predict(gray_face))
+                emotion = emotion_labels[emotion_label_arg]
+                img = chineseText.cv2ImgAddText(img, emotion, x + h * 0.3, y, (0, 0, 255))
 
         #头像挂件代码
         try:
