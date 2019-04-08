@@ -151,6 +151,7 @@ def discern(img):
 
     #将识别效果创建窗口展示出来
     cv2.namedWindow("Face recognition - q exit", 0)
+    # cv2.resizeWindow("Face recognition - q exit", 1280 , 720)
     cv2.imshow("Face recognition - q exit", img)
 
 # 获取摄像头0表示第一个摄像头
